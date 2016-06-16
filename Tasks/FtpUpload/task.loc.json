@@ -1,0 +1,81 @@
+{
+  "id": "49c661bd-e9f8-41da-b56a-bb36b946d1a9",
+  "name": "FtpUpload",
+  "friendlyName": "ms-resource:loc.friendlyName",
+  "description": "ms-resource:loc.description",
+  "author": "Microsoft Corporation",
+  "helpMarkDown": "ms-resource:loc.helpMarkDown",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
+  "groups": [
+    {
+      "name": "files",
+      "displayName": "ms-resource:loc.group.displayName.files",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "serverEndpoint",
+      "type": "connectedService:Generic",
+      "label": "ms-resource:loc.input.label.serverEndpoint",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.serverEndpoint"
+    },
+    {
+      "name": "remotePath",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.remotePath",
+      "defaultValue": "/upload/$(Build.BuildId)/",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "rootFolder",
+      "type": "filePath",
+      "label": "ms-resource:loc.input.label.rootFolder",
+      "defaultValue": "",
+      "required": true,
+      "groupName": "files",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "relativeRootFolder",
+      "type": "filePath",
+      "label": "ms-resource:loc.input.label.relativeRootFolder",
+      "required": false,
+      "groupName": "files",
+      "helpMarkDown": "ms-resource:loc.input.help.relativeRootFolder"
+    },
+    {
+      "name": "filePatterns",
+      "type": "multiLine",
+      "label": "ms-resource:loc.input.label.filePatterns",
+      "defaultValue": "**\\*",
+      "required": true,
+      "groupName": "files",
+      "helpMarkDown": "ms-resource:loc.input.help.filePatterns",
+      "properties": {
+        "resizable": "true",
+        "rows": "4"
+      }
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "ftpuploadtask.js",
+      "argumentFormat": ""
+    }
+  }
+}

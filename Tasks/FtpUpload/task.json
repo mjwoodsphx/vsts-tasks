@@ -1,0 +1,80 @@
+{
+  "id": "49c661bd-e9f8-41da-b56a-bb36b946d1a9",
+  "name": "FtpUpload",
+  "friendlyName": "Ftp Upload",
+  "description": "Ftp Upload",
+  "author": "Microsoft Corporation",
+  "helpMarkDown": "Upload files to an ftp server using either ftp, or secure ftps",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "instanceNameFormat": "Ftp Upload: $(rootFolder)",
+  "groups": [
+        {
+          "name": "files",
+          "displayName": "Files to upload",
+          "isExpanded": true
+        }
+    ],
+  "inputs": [
+    {
+      "name": "serverEndpoint",
+      "type": "connectedService:Generic",
+      "label": "FTP service endpoint",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Select the service endpoint for your FTP server.  To create one, click the Manage link and create a new Generic Service Endpoint, enter the FTP server URL for the server URL, e.g. ftps://server.example.com, and required credentials."
+    },
+    {
+      "name": "remotePath",
+      "type": "string",
+      "label": "Remote root file path to upload files",
+      "defaultValue": "/upload/$(Build.BuildId)/",
+      "required": true,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "rootFolder",
+      "type": "filePath",
+      "label": "Root folder (or file)",
+      "defaultValue": "",
+      "required": true,
+      "groupName": "files",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "relativeRootFolder",
+      "type": "filePath",
+      "label": "Relative root folder",
+      "required": false,
+      "groupName": "files",
+      "helpMarkDown": "If set, the root folder will be included in all uploaded file paths.  Otherwise, all file paths will start one level lower.  <br/><br/>For example, suppose the selected root folder is <b>`/home/user/output/classes/`</b>, and contains <b>`com/acme/Main.class`</b>. <ul><li>If set, the resulting uploaded file path would be <b>`classes/com/acme/Main.class`</b>.</li><li>If not set, the resulting upload file path would be <b>`com/acme/Main.class`</b>.</li></ul>"
+    },
+    {
+      "name": "filePatterns",
+      "type": "multiLine",
+      "label": "File patterns",
+      "defaultValue": "**\\*",
+      "required": true,
+      "groupName": "files",
+      "helpMarkDown": "File paths or patterns of the files to upload.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269)",
+      "properties": {
+          "resizable": "true",
+          "rows" : "4"
+      }
+    }
+  ],  "execution": {
+    "Node": {
+      "target": "ftpuploadtask.js",
+      "argumentFormat": ""
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "ftp",
+  "version": "1.0.1",
+  "description": "Ftp Upload Task",
+  "main": "ftpuploadtask.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Microsoft/vsts-tasks.git"
+  },
+  "author": "Microsoft Corporation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Microsoft/vsts-tasks/issues"
+  },
+  "homepage": "https://github.com/Microsoft/vsts-tasks#readme",
+  "dependencies": {
+    "collections": "3.0.0",
+    "ftp": "*"
+  }
+}

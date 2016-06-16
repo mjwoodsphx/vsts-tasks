@@ -1,0 +1,15 @@
+{
+  "loc.friendlyName": "Ftp Upload",
+  "loc.helpMarkDown": "Upload files to an ftp server using either ftp, or secure ftps",
+  "loc.description": "Ftp Upload",
+  "loc.instanceNameFormat": "Ftp Upload: $(rootFolder)",
+  "loc.group.displayName.files": "Files to upload",
+  "loc.input.label.serverEndpoint": "FTP service endpoint",
+  "loc.input.help.serverEndpoint": "Select the service endpoint for your FTP server.  To create one, click the Manage link and create a new Generic Service Endpoint, enter the FTP server URL for the server URL, e.g. ftps://server.example.com, and required credentials.",
+  "loc.input.label.remotePath": "Remote root file path to upload files",
+  "loc.input.label.rootFolder": "Root folder (or file)",
+  "loc.input.label.relativeRootFolder": "Relative root folder",
+  "loc.input.help.relativeRootFolder": "If set, the root folder will be included in all uploaded file paths.  Otherwise, all file paths will start one level lower.  <br/><br/>For example, suppose the selected root folder is <b>`/home/user/output/classes/`</b>, and contains <b>`com/acme/Main.class`</b>. <ul><li>If set, the resulting uploaded file path would be <b>`classes/com/acme/Main.class`</b>.</li><li>If not set, the resulting upload file path would be <b>`com/acme/Main.class`</b>.</li></ul>",
+  "loc.input.label.filePatterns": "File patterns",
+  "loc.input.help.filePatterns": "File paths or patterns of the files to upload.  Supports multiple lines of minimatch patterns.  [More Information](https://go.microsoft.com/fwlink/?LinkId=800269)"
+}
